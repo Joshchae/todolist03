@@ -6,8 +6,8 @@ import Body from './Body/Body';
 function App() {
   return (
     <div>
-    <Header />
-    <Body />
+      <Header />
+      <Body />
     </div>
   );
 }
