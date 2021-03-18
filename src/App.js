@@ -1,13 +1,14 @@
 import './App.css';
-import Header from './Header/Header';
-import Body from './Body/Body';
-
+import Header from './components/Header/Header';
+import Input from './components/Input/Input';
+import ToDoList from './components/ToDoList/ToDoList';
 
 function App() {
   return (
     <div>
       <Header />
-      <Body />
+      <Input />
+      <ToDoList />
     </div>
   );
 }
