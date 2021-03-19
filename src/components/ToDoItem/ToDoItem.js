@@ -2,10 +2,11 @@ import React from 'react'
 import './ToDoItem.css'
 
 
-function ToDoItem() {
+function ToDoItem({itemContent}) {
+    
     return (
         <div className="todoitem">
-            <p>To Do</p>
+            <p>{itemContent.task}</p>
             <button>Due Date</button>
             {/* {DaTe} */}
             <button>Edit</button> 
