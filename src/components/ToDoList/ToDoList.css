@@ -1,0 +1,10 @@
+.to-do-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 350px;
+}
+
+.to-do-list__todoitems {
+    
+}
