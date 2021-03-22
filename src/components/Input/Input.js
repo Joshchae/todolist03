@@ -2,20 +2,30 @@ import React , {useRef} from 'react'
 import uuid from 'react-uuid'
 import './Input.css'
 
-function Input({action}) {
+function Input({action, changeCategory}) {
     const inputItem = useRef(null);
-    const dateItem = useRef(null)
+    const dateItem = useRef(null);
+    const category = useRef(null)
     
     const onClick = () => {
-        const inputObject = {task: inputItem.current.value, done: false, category: '', id: uuid(), memo: '', date: dateItem.current.value};
+        const inputObject = {task: inputItem.current.value, done: false, category: category.current.value, id: uuid(), memo: '', date: dateItem.current.value};
         action(inputObject);
         inputItem.current.value = "";
     };
+
+    const onCategoryChange = () => {
+        changeCategory(category.current.value)
+        console.log(category.current.value)
+    }
         
     return (
         <div className="input">
-            <input className="input__textfield" type="text" placeholder="To-do" ref={inputItem} />
-            
+            <input className="input__textfield" type="text" placeholder="Enter Text" ref={inputItem} />
+            <select onSelect={onCategoryChange} className="different-category" ref={category}>
+                    <option onSelect={onCategoryChange} value="fruits">Fruits</option>
+                    <option onSelect={onCategoryChange} value="kitchen">Kitchen</option>
+                    <option onSelect={onCategoryChange} value="vegetable">Vegetables</option>
+            </select>
             <input type="date" ref={dateItem} id="start" name="trip-start"
             
              min="2021-01-01" 

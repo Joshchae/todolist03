@@ -23,6 +23,12 @@ function App() {
   
   ]);
 
+  const [category, setCategory] = useState("vegetable");
+
+  const changeCategory = (newCategory) => {
+    setCategory(newCategory);
+  }
+
 
   // Function that adds completely new Items
   const addNewItem = (newItem) => {
@@ -48,9 +54,11 @@ function App() {
     <div className="app">
       <div className="app__content">
         <h1 className="title">To-Do or Not-To-Do</h1>
-        <Input action={addNewItem}
+        <Input action={addNewItem} changeCategory={changeCategory}
         />
-        <ToDoList items={items} action={addNewItem} updateItems={updateItems} 
+        <ToDoList items={items} action={addNewItem}
+        category={category} 
+        updateItems={updateItems} 
         />
       </div>
     </div>

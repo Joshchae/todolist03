@@ -66,7 +66,7 @@ function ToDoItem({itemContent, updateItems}) {
           ></textarea>
           <div className="todoitem__info">
             <p className="todoitem__info__date"> due: {itemContent.date}</p>
-            <p className="todoitem__info__category">shopping</p>
+            <p className="todoitem__info__category">{itemContent.category}</p>
           </div>
         </div>
         <div className="todoitem__button">
