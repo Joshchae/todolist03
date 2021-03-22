@@ -1,0 +1,19 @@
+.input {
+    display: flex;
+    margin: 2rem;
+    height: 4rem;
+}
+.input__textfield {
+    width: 100%;
+    padding: 0.5rem;
+    margin-right: 2rem;
+    font-size: 1.5rem;
+    border-radius: 10px;
+}
+
+.input__createbutton {
+    height: 100%;
+    width: 7rem;
+    border-radius: 10px;
+}
+

@@ -1,3 +1,75 @@
 .todoitem {
+    width: 100%;
     display: flex;
+    margin: 2rem 0;
+    font-size: 1.8rem;
+}
+
+.todoitem__button {
+    width: 20%;
+    display: flex;
+    align-items: center;
+}
+
+.btn-round {
+    margin: 0.5rem;
+    padding: 0.3rem;
+    height: 4.1rem;
+    border-radius: 50%;
+}
+
+.btn-round--done {
+    background-color: #16c79a;
+}
+
+.btn-round--trash {
+    background-color: #19456b7c;
+}
+
+.todoitem__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.todoitem__text-and-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border-bottom: 2px dotted black;
+    background-color: #11698e48;
+    
+}
+
+.todoitem__text {
+    margin-right: 2rem;
+}
+
+.todoitem__buttons {
+    display: inline-flex;
+    justify-content: space-around;
+}
+
+.todoitem__info {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    background-color: #11698e18;
+}
+
+
+
+/* INTERACTIVE FEATURES */
+
+/* Memo Field */
+
+.memo {
+    display: none;
+}
+
+.memo-active {
+    display: block;
 }
