@@ -21,10 +21,10 @@ function Input({action, changeCategory}) {
     return (
         <div className="input">
             <input className="input__textfield" type="text" placeholder="Enter Text" ref={inputItem} />
-            <select onSelect={onCategoryChange} className="different-category" ref={category}>
-                    <option onSelect={onCategoryChange} value="fruits">Fruits</option>
-                    <option onSelect={onCategoryChange} value="kitchen">Kitchen</option>
-                    <option onSelect={onCategoryChange} value="vegetable">Vegetables</option>
+            <select onChange={onCategoryChange} className="different-category" ref={category}>
+                    <option value="fruits">Fruits</option>
+                    <option value="kitchen">Kitchen</option>
+                    <option value="vegetable">Vegetables</option>
             </select>
             <input type="date" ref={dateItem} id="start" name="trip-start"
             

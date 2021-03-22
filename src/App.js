@@ -10,14 +10,14 @@ function App() {
       id: uuid(), // this fucntion will create a unique id for every item, making it easy to select
       task: 'buy bananas',
       done: false,
-      category: 'shopping',
+      category: 'vegetable',
       memo: 'chiquitas'
     },
     {
       id: uuid(),
       task: 'clean kitchen',
       done: true,
-      category: 'home',
+      category: 'fruits',
       memo: 'use dirty towels'
     }
   
