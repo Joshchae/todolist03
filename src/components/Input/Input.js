@@ -20,17 +20,23 @@ function Input({action, changeCategory}) {
         
     return (
         <div className="input">
-            <input className="input__textfield" type="text" placeholder="Enter Text" ref={inputItem} />
-            <select onChange={onCategoryChange} className="different-category" ref={category}>
-                    <option value="fruits">Fruits</option>
-                    <option value="kitchen">Kitchen</option>
-                    <option value="vegetable">Vegetables</option>
-            </select>
-            <input type="date" ref={dateItem} id="start" name="trip-start"
-            
-             min="2021-01-01" 
-             max="2021-12-31"></input>
-             <button className="input__createbutton btn" onClick={onClick} type="button">Create</button>
+            <div className="input__inputfields">
+                <input className="input__textfield" type="text" placeholder="Enter Text" ref={inputItem} />
+                <div className="input__category-and-date">
+                    <select onChange={onCategoryChange} className="category-select" ref={category}>
+                            <option value="fruits">Fruits</option>
+                            <option value="kitchen">Kitchen</option>
+                            <option value="vegetable">Vegetables</option>
+                    </select>
+                    <input type="date" ref={dateItem} className="due-date-select"
+                    
+                    min="2021-01-01" 
+                    max="2021-12-31"></input>
+                </div>
+             </div>
+             <div className="input__create-button">
+                 <button className="btn btn--create" onClick={onClick} type="button">Create</button>
+             </div>
         </div>
     )
 }

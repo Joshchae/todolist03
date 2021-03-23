@@ -20,10 +20,14 @@
 
 .btn-round--done {
     background-color: #16c79a;
+    box-shadow: 2px 2px 3px #007580;
+
 }
 
 .btn-round--trash {
     background-color: #19456b7c;
+    box-shadow: 2px 2px 3px #007580;
+
 }
 
 .todoitem__content {
@@ -32,6 +36,7 @@
     width: 100%;
     border: 2px solid black;
     border-radius: 10px;
+    box-shadow: 2px 2px 3px #007580;
     overflow: hidden;
 }
 
@@ -40,7 +45,7 @@
     justify-content: space-between;
     padding: 0.5rem;
     border-bottom: 2px dotted black;
-    background-color: #11698e48;
+    background-color: #fed049;
     
 }
 
@@ -57,7 +62,7 @@
     display: flex;
     justify-content: space-between;
     padding: 0.5rem;
-    background-color: #11698e18;
+    background-color: #fed1498e;
 }
 
 
