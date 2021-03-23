@@ -3,7 +3,7 @@ import './ToDoItem.css'
 
 // Edit Button: use State for toggling edit view. use State also for editing content.
 
-function ToDoItem({itemContent, updateItems}) {
+function ToDoItem({itemContent, updateItems, onDelete, onDone}) {
 
 // Text Field Button: use State to change the Status of the Memo Area by changing the className
     const [memoContent, setMemoState] = useState(
@@ -43,7 +43,7 @@ function ToDoItem({itemContent, updateItems}) {
       <div className="todoitem">
 
         <div className="todoitem__button">
-          <button className="btn-round btn-round--done">Done</button>{" "}
+          <button className="btn-round btn-round--done" /*onClick={onDone(itemContent.id)} */ > Done </button>{" "}
           {/* cross out the item */}
         </div>
         <div className="todoitem__content">
@@ -70,7 +70,7 @@ function ToDoItem({itemContent, updateItems}) {
           </div>
         </div>
         <div className="todoitem__button">
-          <button className="btn-round btn-round--trash" onClick={checkItems}>
+          <button className="btn-round btn-round--trash" onClick={() => {checkItems(); onDelete(itemContent.id);}}>
             Trash
           </button>
         </div>

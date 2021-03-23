@@ -49,6 +49,20 @@ function App() {
     setItems(updatedItems)
   }
 
+  // Function that deletes the clicked item
+  const deleteItem = (id) => {
+    setItems(items.filter((item) => item.id !== id))
+  }
+
+  // Function that sorts the done item
+  const doneItem = (id) => {
+    setItems(
+      items.map((item) => 
+      item.id === id ? {
+        ...item, done: !item.done
+      } : item))
+  }
+
 
   return (
     <div className="app">
@@ -56,10 +70,14 @@ function App() {
         <h1 className="title">To-Do or Not-To-Do</h1>
         <Input action={addNewItem} changeCategory={changeCategory}
         />
-        <ToDoList items={items} action={addNewItem}
-        category={category} 
-        updateItems={updateItems} 
-        />
+        <ToDoList 
+          items={items}
+          action={addNewItem} 
+          category={category} 
+          updateItems={updateItems} 
+          onDelete={deleteItem}
+          onDone={doneItem}
+          />
       </div>
     </div>
   );
