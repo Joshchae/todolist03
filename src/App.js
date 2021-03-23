@@ -22,29 +22,25 @@ function App() {
       category: 'fruits',
       memo: 'use dirty towels'
     }
-  
   ]);
   
- 
   const [category, setCategory] = useState("fruits");
 
   const changeCategory = (newCategory) => {
     setCategory(newCategory);
   }
 
+  // useEffect to run and save in the local storage
+  useEffect(() => {
+    getLocalItems();
+  }, []);
+
+
+ useEffect (() => {
+   saveLocalItems();
+ }, [items]);
+
   
-//   useEffect(() => {
-//     getLocalItems();
-//   }, []);
-
-
-//  useEffect (() => {
-//    saveLocalItems();
-//  }, [items])
-
-  
-
-
   // Function that adds completely new Items
   const addNewItem = (newItem) => {
     const newItemList = [
@@ -68,19 +64,19 @@ function App() {
     setItems(items.filter((item) => item.id !== id))
   }
 
-//   const getLocalItems = () => {
-//     localStorage.setItem("items", JSON.stringify(items));
-//   };
+  // local storage
+  const saveLocalItems = () => {
+    localStorage.setItem("items", JSON.stringify(items));
+  };
 
-
-//   const saveLocalItems = () => {
-//     if(localStorage.getItem('items') === null) {
-//       localStorage.setItem('items', JSON.stringify([]));
-//     } else {
-//     let itemLocal = JSON.parse(localStorage.getItem("items"))
-//     setItems(itemLocal);
-//   }
-// };
+  const getLocalItems = () => {
+    if(localStorage.getItem('items') === null) {
+      localStorage.setItem('items', JSON.stringify([]));
+    } else {
+    let itemLocal = JSON.parse(localStorage.getItem("items"))
+    setItems(itemLocal);
+  }
+};
 
   return (
     <div className="app">
