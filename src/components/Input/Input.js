@@ -35,7 +35,7 @@ function Input({action, changeCategory}) {
                 </div>
              </div>
              <div className="input__create-button">
-                 <button className="btn btn--create" onClick={onClick} type="button">Create</button>
+                 <button className="btn btn--creates" onClick={onClick} type="button">Create</button>
              </div>
         </div>
     )
