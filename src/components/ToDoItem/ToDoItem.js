@@ -3,7 +3,7 @@ import './ToDoItem.css'
 
 // Edit Button: use State for toggling edit view. use State also for editing content.
 
-function ToDoItem({itemContent, updateItems, onDelete, onDone}) {
+function ToDoItem({itemContent, updateItems, onDelete}) {
 
 // Text Field Button: use State to change the Status of the Memo Area by changing the className
     const [memoContent, setMemoState] = useState(
@@ -28,6 +28,12 @@ function ToDoItem({itemContent, updateItems, onDelete, onDone}) {
         }
     }
 
+// done item
+    const toggleDone = () => {
+      updateItems(itemContent.id, {done : !itemContent.done})
+      }
+    
+
     const checkItems = () => {
         console.log(itemContent)
     }
@@ -43,7 +49,7 @@ function ToDoItem({itemContent, updateItems, onDelete, onDone}) {
       <div className="todoitem">
 
         <div className="todoitem__button">
-          <button className="btn-round btn-round--done" /*onClick={onDone(itemContent.id)} */ > Done </button>{" "}
+          <button className="btn-round btn-round--done" onClick={toggleDone} > Done </button>{" "}
           {/* cross out the item */}
         </div>
         <div className="todoitem__content">
@@ -65,7 +71,6 @@ function ToDoItem({itemContent, updateItems, onDelete, onDone}) {
             value={memoText}
           ></textarea>
           <div className="todoitem__info">
-            <p className="todoitem__info__date"> due: {itemContent.date}</p>
             <p className="todoitem__info__category">{itemContent.category}</p>
           </div>
         </div>
