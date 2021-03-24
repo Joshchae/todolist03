@@ -36,9 +36,26 @@ html {
   border-radius: 20px;
 }
 
-.title {
+.app__title {
   margin-top: 2rem;
   padding: 0.5rem;
   font-size: 3rem;
+  font-family: 'New Tegomin', serif;
   border-radius: 10px;
+  color: white;
+  background-color: #007580;
+  text-shadow: 1px 1px 1px black;
+  box-shadow: 2px 2px 2px #007580;
+  border: 2px solid black;
+}
+
+.title--yellow {
+  color: #fed049;
+  text-shadow: 1px 1px 1px black;
+}
+
+.app__hr {
+  border: 1px solid black;
+  width: 50%;
+  margin: 0 auto;
 }

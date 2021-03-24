@@ -36,6 +36,7 @@
     font-size: 1.5rem;
     border-radius: 10px;
     overflow-wrap: break-word;
+    outline: none;
 }
 
 .input__create-button {
@@ -60,7 +61,6 @@
     margin-bottom: 1rem;
     justify-content: flex-start;
     width: 100%;
-
 }
 
 .category-select {
@@ -71,7 +71,6 @@
     border-radius: 5px;
     font-size: 1.5rem;
     padding: 0.5rem;
-    margin-left: 0.5rem;
 }
 
 .due-date-select {
@@ -82,20 +81,17 @@
 
 .input__select {
     display: flex;
-    /* flex-direction: column; */
     align-items: center;
     justify-content: flex-start;
 }
 
 .input__select--category {
-    margin: 0 0.5rem;
-}
-
-.input__select--dueDate {
-    
+    margin: 0 1.2rem;
 }
 
 .input__label {
     color: white;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-right: 0.3rem;
 }
