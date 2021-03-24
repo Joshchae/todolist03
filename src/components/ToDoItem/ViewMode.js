@@ -4,13 +4,13 @@ import './ToDoItem.css'
 function ViewMode({ itemContent, toggleEdit }) {
   return (
     <div>
-      <div className="todoitem__content">
+      <div className="todoitem__content" onClick={toggleEdit}>
         <div className="todoitem__text-and-buttons">
           <p className="todoitem__text">{itemContent.task}</p>
           <div className="todoitem__buttons">
-            <button className="btn btn--edit" onClick={toggleEdit}>
+            {/* <button className="btn btn--edit" >
               Edit
-            </button>
+            </button> */}
             {/* edit the text of item */}
           </div>
         </div>

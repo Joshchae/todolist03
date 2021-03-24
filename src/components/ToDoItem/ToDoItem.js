@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import EditMode from "./EditMode";
 import "./ToDoItem.css";
 import ViewMode from "./ViewMode";
+import {BsTrash} from 'react-icons/bs';
+import {IoMdDoneAll} from 'react-icons/io';
 
 // Edit Button: use State for toggling edit view. use State also for editing content.
 
@@ -40,7 +42,7 @@ function ToDoItem({ itemContent, updateItems, onDelete, changeCategory }) {
     <div className="todoitem">
       <div className="todoitem__button">
         <button className="btn-round btn-round--done" onClick={toggleDone}>
-          Done
+          <IoMdDoneAll size={20}/>
         </button>
         {/* cross out the item */}
       </div>
@@ -50,9 +52,8 @@ function ToDoItem({ itemContent, updateItems, onDelete, changeCategory }) {
           className="btn-round btn-round--trash"
           onClick={() => {
             onDelete(itemContent.id);
-          }}
-        >
-          Trash
+          }}>
+          <BsTrash size={20}/>
         </button>
       </div>
     </div>

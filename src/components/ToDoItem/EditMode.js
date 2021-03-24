@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import './ToDoItem.css'
+import {GiSaveArrow} from 'react-icons/gi';
 
 const EditMode = ({ itemContent, updateItems, changeCategory, toggleEdit }) => {
   // UseRefs for the Edit function
@@ -19,8 +20,7 @@ const EditMode = ({ itemContent, updateItems, changeCategory, toggleEdit }) => {
     updateItems(itemContent.id, {
       task: updatedTask,
       category: updatedCategory,
-      date: updatedDate,
-      done: false
+      date: updatedDate
     });
   };
 
@@ -38,22 +38,22 @@ const EditMode = ({ itemContent, updateItems, changeCategory, toggleEdit }) => {
   };
 
   return (
-    <div className="todoitem__content">
-      <div className="todoitem__text-and-buttons">
+    <div className="editmode__content">
+      <div className="editmode__text-and-buttons">
         <input
-          className="input__textfield"
+          className="editmode__textfield"
           type="text"
           value={updatedTask}
           ref={inputItem}
           onChange={onTaskChange}
         />
-        <div className="todoitem__buttons">
-          <button className="btn btn--edit" onClick={changeEditMode}>
-            Save
-          </button>
           {/* edit the text of item */}
-        </div>
+          <GiSaveArrow size={30} className="editmode__button-icon" onClick={changeEditMode}/>
+        {/* <div className="editmode__buttons" onClick={changeEditMode}>
+          
+        </div> */}
       </div>
+
       {/* <textarea
         className={memoContent.className}
         onChange={changeMemo}
@@ -62,7 +62,8 @@ const EditMode = ({ itemContent, updateItems, changeCategory, toggleEdit }) => {
         placeholder="Notes"
         value={memoText}
       ></textarea> */}
-      <div className="todoitem__info">
+      <div className="editmode__date-category">
+        {/* <p className="todoitem__date">{itemContent.date}</p> */}
         <input
           type="date"
           ref={dateItem}
@@ -72,10 +73,9 @@ const EditMode = ({ itemContent, updateItems, changeCategory, toggleEdit }) => {
           onChange={onDateChange}
           value={updatedDate}
         ></input>
-        {/* <p className="todoitem__date">{itemContent.date}</p> */}
         <select
           onChange={onCategoryChange}
-          className="category-select"
+          className="editmode__category-select"
           ref={category}
           value={updatedCategory}
         >
@@ -83,6 +83,8 @@ const EditMode = ({ itemContent, updateItems, changeCategory, toggleEdit }) => {
           <option value="kitchen">Kitchen</option>
           <option value="vegetable">Vegetables</option>
         </select>
+     
+
         {/* <p className="todoitem__info__category">{itemContent.category}</p> */}
       </div>
     </div>
