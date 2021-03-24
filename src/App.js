@@ -10,19 +10,19 @@ function App() {
       id: uuid(), // this fucntion will create a unique id for every item, making it easy to select
       task: "buy bananas",
       done: false,
-      category: "vegetable",
+      category: "Home",
       memo: "chiquitas",
     },
     {
       id: uuid(),
       task: "clean kitchen",
       done: true,
-      category: "fruits",
+      category: "Personal",
       memo: "use dirty towels",
     },
   ]);
 
-  const [category, setCategory] = useState("fruits");
+  const [category, setCategory] = useState("Home");
 
   const changeCategory = (newCategory) => {
     setCategory(newCategory);
@@ -76,8 +76,9 @@ function App() {
   return (
     <div className="app">
       <div className="app__content">
-        <h1 className="title">To-Do or Not-To-Do</h1>
+        <h1 className="app__title"><span className="title--yellow">To Do</span> or not <span className="title--yellow">To Do</span></h1>
         <Input action={addNewItem} changeCategory={changeCategory} />
+        <hr className="app__hr" />
         <ToDoList
           items={items}
           action={addNewItem}

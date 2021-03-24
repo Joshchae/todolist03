@@ -1,13 +1,30 @@
-import React, { useRef } from "react";
+import React, { useRef , useState } from "react";
 import uuid from "react-uuid";
 import "./Input.css";
 import {FaPlus} from 'react-icons/fa'
-import {MdCreate} from 'react-icons/md'
 
 function Input({ action, changeCategory }) {
   const inputItem = useRef(null);
   const dateItem = useRef(null);
   const category = useRef(null);
+
+  const getCurrentDate = () => {
+    const today = new Date();
+    const year = today.getFullYear()
+    let month = today.getMonth() + 1
+    if (month < 10) {
+      month = '0' + month;
+    }
+    const day = today.getDate()
+    return `${year}-${month}-${day}`
+  }
+
+  const [date, setDate] = useState(getCurrentDate)
+
+  const changeDate = (evt) => {
+    setDate(evt.target.value)
+  }
+
 
   const onClick = () => {
     const inputObject = {
@@ -23,6 +40,13 @@ function Input({ action, changeCategory }) {
     inputItem.current.value = "";
   };
 
+  const onEnter = (evt) => {
+    console.log(evt.code)
+    if (evt.code === 'Enter') {
+        onClick()
+    }  
+  }
+
   const onCategoryChange = () => {
     changeCategory(category.current.value);
     console.log(category.current.value);
@@ -33,10 +57,12 @@ function Input({ action, changeCategory }) {
         <div className="input__inputfields">
           <div className="input__text-and-create">
             <input
+                onKeyDown={onEnter}
                 className="input__textfield"
                 type="text"
-                placeholder="Enter Text"
+                placeholder="What to do?"
                 ref={inputItem}/>
+                
 
             <div className="input__create-button">
                 <button className="btn btn--create btn-round" onClick={onClick} type="button">
@@ -48,8 +74,10 @@ function Input({ action, changeCategory }) {
           
           <div className="input__category-and-date">
            <div className="input__select--duedate input__select">
-              <label htmlFor="dueDate" className='input__label'>Due Date:</label>
+              <label htmlFor="dueDate" className='input__label'>When?</label>
               <input
+                value={date}
+                onChange={changeDate}
                 id='dueDate'
                 type="date"
                 ref={dateItem}
@@ -60,16 +88,16 @@ function Input({ action, changeCategory }) {
             </div>
 
             <div className="input__select--category input__select">
-              <label htmlFor="category" className="input__label">Category:</label>
+              <label htmlFor="category" className="input__label">Where?</label>
               <select
                 id="category"
                 onChange={onCategoryChange}
                 className="category-select"
                 ref={category}
               >
-                <option value="fruits">Fruits</option>
-                <option value="kitchen">Kitchen</option>
-                <option value="vegetable">Vegetables</option>
+                <option value="Home">Home</option>
+                <option value="Office">Office</option>
+                <option value="Personal">Personal</option>
               </select>
             </div>
 
