@@ -21,19 +21,27 @@
 .btn-round--done {
     background-color: #16c79a;
     box-shadow: 2px 2px 3px #007580;
+}
 
+.btn-round--done:active {
+    transform: translateY(4px);
 }
 
 .btn-round--trash {
     background-color: #19456b7c;
     box-shadow: 2px 2px 3px #007580;
+    margin-left: 0.7rem;
+}
 
+.btn-round--trash:hover {
+   
+   transform:scale(1.25);
 }
 
 .todoitem__content {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 25rem;
     border: 2px solid black;
     border-radius: 10px;
     box-shadow: 2px 2px 3px #007580;
@@ -46,11 +54,12 @@
     padding: 0.5rem;
     border-bottom: 2px dotted black;
     background-color: #fed049;
-    
 }
 
 .todoitem__text {
     margin-right: 2rem;
+    max-width: 18rem;
+    overflow-wrap: break-word;
 }
 
 .todoitem__buttons {
