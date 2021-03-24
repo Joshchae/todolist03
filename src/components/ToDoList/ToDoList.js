@@ -1,27 +1,57 @@
-import React from 'react'
-import ToDoItem from '../ToDoItem/ToDoItem'
-import './ToDoList.css'
+import React, { useState } from "react";
+import ToDoItem from "../ToDoItem/ToDoItem";
+import "./ToDoList.css";
+import {FaChevronDown} from 'react-icons/fa'
 
+function ToDoList({ items, updateItems, category, onDelete, changeCategory }) {
+  // iterate thorugh every item and check if its category is the selected category
 
-function ToDoList({items, updateItems, category, onDelete}) {
+  const [doneItems, setDoneItems] = useState('doneItem-hidden')
 
-    // iterate thorugh every item and check if its category is the selected category
-    const filteredList = items.filter(item => item.category === category);
+  // doneitems have two css classes: first one is the basic one, second one has 'display: none'
+  const toggleDone = () => { doneItems === '' ? setDoneItems('doneItem-hidden') : setDoneItems('')};
 
-    return  (
-        <div className="to-do-list">
-            <div className="to-do-list__items">
-                <p>Items To-do</p>
-                    {filteredList.map((item, index) => item.done? '' : (<ToDoItem itemContent={item} key={index} updateItems={updateItems} onDelete={onDelete}/>))}
-            </div>
-            <div className="done-items">
-                <p>Items Done</p>
-                <div>
-                 {filteredList.map((item, index) => item.done? (<ToDoItem itemContent={item} key={index} updateItems={updateItems} onDelete={onDelete}/>) : '' )}   
-                </div>
-            </div>
+  const filteredList = items.filter((item) => item.category === category);
+
+  return (
+    <div className="to-do-list">
+      <div className="to-do-list__items">
+        <h2 className="to-do-list__headline">Items To-do</h2>
+        {filteredList.map((item, index) =>
+          item.done ? (
+            ""
+          ) : (
+            <ToDoItem
+              itemContent={item}
+              key={index}
+              updateItems={updateItems}
+              onDelete={onDelete}
+              changeCategory={changeCategory}
+            />
+          )
+        )}
+      </div>
+      <div className="to-do-list__items">
+        <h2 className="to-do-list__headline" onClick={toggleDone}>Items Done<br /><FaChevronDown size={20}/></h2>
+        <div className={doneItems}>
+          {filteredList.map((item, index) =>
+            item.done ? (
+              <ToDoItem
+                itemContent={item}
+                key={index}
+                updateItems={updateItems}
+                onDelete={onDelete}
+                changeCategory={changeCategory}
+              
+              />
+            ) : (
+              ""
+            )
+          )}
         </div>
-    )
+      </div>
+    </div>
+  ); 
 }
 
-export default ToDoList
+export default ToDoList;

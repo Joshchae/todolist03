@@ -1,25 +1,41 @@
+/* .input {
+    display: flex;
+    justify-content: center;
+} */
+
 .input {
     display: flex;
+    width: 38rem;
     margin: 2rem;
-    padding: 1rem;
+    padding: 0.6rem 1rem;
     background-color: #007580;
     border: 2px solid black;
     border-radius: 10px;
     box-shadow: 2px 2px 5px #282846;
 }
 
+
 .input__inputfields {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
+.input__text-and-create {
+    display: flex;
+}
+
+
 .input__textfield {
+    min-width: 28rem;
     width: 100%;
-    padding: 0.5rem;
+    height: 4rem;
+    padding: 0.3rem;
     margin: 1rem;
     font-size: 1.5rem;
     border-radius: 10px;
+    overflow-wrap: break-word;
 }
 
 .input__create-button {
@@ -28,32 +44,58 @@
     align-items: center;
 }
 
-.btn--create {
+.btn-round.btn--create {
     margin: 0.5rem;
-    padding: 0.8rem;
-    height: 6rem;
-    border-radius: 50%;
+    padding: 0.5rem;
+    height: 4rem;
+    background-color: #fed049;
+    border-radius: 20%;
+    font-size: 1.4rem;
+    width: 5rem;
+    
 }
 
 .input__category-and-date {
     display: flex;
     margin-bottom: 1rem;
-    justify-content: center;
+    justify-content: flex-start;
+    width: 100%;
+
 }
 
 .category-select {
     appearance: none;
     display: inline-block;
-    width: 10rem;
+    width: 12rem; 
     height: 3rem;
     border-radius: 5px;
     font-size: 1.5rem;
     padding: 0.5rem;
-    margin-right: 1rem;
+    margin-left: 0.5rem;
 }
 
 .due-date-select {
-    width: 5rem;
+    width: 12rem;
     border-radius: 5px;
     height: 3rem;
+}
+
+.input__select {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.input__select--category {
+    margin: 0 0.5rem;
+}
+
+.input__select--dueDate {
+    
+}
+
+.input__label {
+    color: white;
+    font-size: 1.4rem;
 }
