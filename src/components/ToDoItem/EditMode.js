@@ -86,9 +86,10 @@ const EditMode = ({ itemContent, updateItems, changeCategory, toggleEdit }) => {
           ref={category}
           value={updatedCategory}
         >
-          <option value="fruits">Fruits</option>
-          <option value="kitchen">Kitchen</option>
-          <option value="vegetable">Vegetables</option>
+          <option value="">none</option>
+          <option value="Home">Home</option>
+          <option value="Office">Office</option>
+          <option value="Personal">Personal</option>
         </select>
      
 
