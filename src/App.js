@@ -22,7 +22,7 @@ function App() {
     },
   ]);
 
-  const [category, setCategory] = useState("Home");
+  const [category, setCategory] = useState("");
 
   const changeCategory = (newCategory) => {
     setCategory(newCategory);
@@ -87,7 +87,9 @@ function App() {
           onDelete={deleteItem}
           changeCategory={changeCategory}
         />
-      </div>
+        <hr className="app__hr" />
+        <div className="app__footer">@Copyright Group 3: Navid, Henning, Josh</div>
+      </div>      
     </div>
   );
 }
