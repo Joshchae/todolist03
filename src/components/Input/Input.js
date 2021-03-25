@@ -35,13 +35,13 @@ function Input({ action, changeCategory }) {
       memo: "",
       date: dateItem.current.value,
     };
-    action(inputObject);
-    console.log(dateItem.current.value);
+    if (inputItem.current.value !== "") {
+      action(inputObject);  
+    }
     inputItem.current.value = "";
   };
 
   const onEnter = (evt) => {
-    console.log(evt.code)
     if (evt.code === 'Enter') {
         onClick()
     }  
@@ -90,11 +90,13 @@ function Input({ action, changeCategory }) {
             <div className="input__select--category input__select">
               <label htmlFor="category" className="input__label">Where?</label>
               <select
+                onKeyDown={onEnter}
                 id="category"
                 onChange={onCategoryChange}
                 className="category-select"
                 ref={category}
               >
+                <option value="">none</option>
                 <option value="Home">Home</option>
                 <option value="Office">Office</option>
                 <option value="Personal">Personal</option>

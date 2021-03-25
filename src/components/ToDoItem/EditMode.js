@@ -36,6 +36,12 @@ const EditMode = ({ itemContent, updateItems, changeCategory, toggleEdit }) => {
     saveEdit();
     toggleEdit();
   };
+  
+  const onEnter = (evt) => {
+    if (evt.code === 'Enter') {
+        changeEditMode();
+    }  
+  }
 
   return (
     <div className="editmode__content">
@@ -46,6 +52,7 @@ const EditMode = ({ itemContent, updateItems, changeCategory, toggleEdit }) => {
           value={updatedTask}
           ref={inputItem}
           onChange={onTaskChange}
+          onKeyDown={onEnter}
         />
           {/* edit the text of item */}
           <GiSaveArrow size={30} className="editmode__button-icon" onClick={changeEditMode}/>
